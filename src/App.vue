@@ -9,7 +9,7 @@
     >
       <template #default="{ node, data }">
         <ElTreeLine :node="node">
-          <template v-slot:node-label>
+          <template #node-label>
             <div class="custom-tree-node">
               {{ data.label }}
             </div>
