@@ -1,0 +1,41 @@
+{
+  "name": "el-tree-line",
+  "private": false,
+  "version": "1.0.2",
+  "type": "module",
+  "main": "./lib/index.umd.js",
+  "module": "./lib/index.es.js",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "vue",
+    "el-tree-line",
+    "element-plus"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "dev-nocache": "vite --force",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "element-plus": "^2.10.6",
+    "vue": "^3.5.18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.7.0",
+    "sass": "^1.90.0",
+    "typescript": "~5.8.3",
+    "unplugin-element-plus": "^0.10.0",
+    "vite": "^7.1.2",
+    "vue-tsc": "^3.0.5"
+  },
+  "author": "snow_sunset",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheSunset/el-tree-line"
+  }
+}
