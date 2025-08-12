@@ -147,7 +147,3 @@ const data = [
 | options.value | any    | 每个分段的值，change 事件的回调结果      |
 | @change       | 事件   | 分段改变触发的事件，参数为 options.value |
 
-## License
-
-MIT
-© 2025 GitHub, Inc.

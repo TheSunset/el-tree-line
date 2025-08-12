@@ -33,7 +33,6 @@
     "vue-tsc": "^3.0.5"
   },
   "author": "snow_sunset",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/TheSunset/el-tree-line"
