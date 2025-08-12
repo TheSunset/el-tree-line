@@ -7,8 +7,8 @@
 > 给`element-plus`的`el-tree`组件增加结构层级连线，无入侵不影响`el-tree`原始功能。
 >
 > 思路参考了 https://github.com/GitOfZGT/element-tree-line 的实现。由于 `element-tree-line` 本人使用时结构连线对不齐。故写了此组件。后续会提供一些额外配置控制线条的偏移等。
->
-[在线演示]([https://your-demo-link](https://thesunset.github.io/el-tree-line/))
+
+[在线演示](https://thesunset.github.io/el-tree-line/)
 
 ## Installation
 
@@ -148,5 +148,4 @@ const data = [
 | ------------- | ------ | ---------------------------------------- |
 | node          | object | el-tree的node节点                         |
 | indent        | number | 相邻级节点间的水平缩进，单位为像素。与el-tree的indent保持一致  |
-
 
