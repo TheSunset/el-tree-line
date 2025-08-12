@@ -19,7 +19,9 @@ yarn add el-tree-line
 ```
 
 ## Usage
-
+1. 给`el-tree`组件添加`class="el-tree-line-root"`，避免污染其他组件。
+2. 使用`ElTreeLine`组件包裹`el-tree`的每个节点。
+3. 引入样式 `import "/lib/index.css";`
 ```vue
 <template>
   <div class="app-container">
@@ -32,7 +34,7 @@ yarn add el-tree-line
     >
       <template #default="{ node, data }">
         <ElTreeLine :node="node">
-          <template v-slot:node-label>
+          <template #node-label>
             <div class="custom-tree-node">
               {{ data.label }}
             </div>
@@ -142,8 +144,7 @@ const data = [
 
 | props         | type   | tip                                      |
 | ------------- | ------ | ---------------------------------------- |
-| options       | array  | 数据，一个数组                           |
-| options.label | string | 每个分段的展示名称                       |
-| options.value | any    | 每个分段的值，change 事件的回调结果      |
-| @change       | 事件   | 分段改变触发的事件，参数为 options.value |
+| node          | object | el-tree的node节点                         |
+| indent        | number | 相邻级节点间的水平缩进，单位为像素。与 el-tree的indent保持一致  |
+
 
