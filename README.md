@@ -1,8 +1,8 @@
 # el-tree-line
 
-![npm](https://img.shields.io/npm/v/el-tree-line)
-![npm bundle size](https://img.shields.io/bundlephobia/min/el-tree-line?color=red)
-![npm](https://img.shields.io/npm/dt/el-tree-line)
+![npm version](https://img.shields.io/npm/v/el-tree-line)
+![npm unpacked size](https://img.shields.io/npm/unpacked-size/el-tree-line)
+![npm download](https://img.shields.io/npm/dt/el-tree-line)
 
 > 给`element-plus`的`el-tree`组件增加结构层级连线，无入侵不影响`el-tree`原始功能。
 >
