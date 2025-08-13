@@ -6,7 +6,9 @@
 
 > 给`element-plus`的`el-tree`组件增加结构层级连线，无入侵不影响`el-tree`原始功能。
 >
-> 思路参考了 https://github.com/GitOfZGT/element-tree-line 的实现。由于 `element-tree-line` 本人使用时结构连线对不齐。故写了此组件。后续会提供一些额外配置控制线条的偏移等。
+> 思路参考了 https://github.com/GitOfZGT/element-tree-line 的实现。由于 `element-tree-line` 本人使用时结构连线对不齐。故写了此组件。目前可配置线条颜色、样式、宽度、线条水平位置偏移（如果对齐不理想可以调整这个）、非叶子节点的水平线条长度修正、叶子节点的水平线条长度修正，具体使用底部有参数说明。
+
+![line](https://thesunset.github.io/el-tree-line/el-tree-line.jpg)
 
 [在线演示](https://thesunset.github.io/el-tree-line/)
 
