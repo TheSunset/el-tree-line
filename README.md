@@ -10,7 +10,7 @@
 
 [在线演示](https://thesunset.github.io/el-tree-line/)
 
-## Installation
+## 安装
 
 ```bash
 npm install el-tree-line --save
@@ -20,7 +20,7 @@ npm install el-tree-line --save
 yarn add el-tree-line
 ```
 
-## Usage
+## 使用
 1. 给`el-tree`组件添加`class="el-tree-line-root"`，避免污染其他组件。
 2. 使用`ElTreeLine`组件包裹`el-tree`的每个节点。
 3. 引入样式 `import "/lib/index.css";`
@@ -142,10 +142,21 @@ const data = [
 </script>
 ```
 
-## Props
+## 参数配置
 
-| props         | type   | tip                                      |
-| ------------- | ------ | ---------------------------------------- |
-| node          | object | el-tree的node节点                         |
-| indent        | number | 相邻级节点间的水平缩进，单位为像素。与el-tree的indent保持一致  |
+| 参数名           | 类型                  | 默认值       | 说明                                                         |
+| ---------------- | --------------------- | ------------ | ------------------------------------------------------------ |
+| `node`           | `Record<string, any>` | 无默认值     | 节点数据对象，必传参数，用于渲染节点内容（具体结构根据业务场景定义）。 |
+| `indent`         | `number`              | `18`         | 节点缩进长度（单位：px），控制层级节点之间的水平间距。与el-tree的indent保持一致。 |
+| `offsetX`        | `number`              | `12`         | 线条整体水平偏移量（可正负），微调所有线条的水平位置。       |
+| `lineXDelta`     | `number`              | `-8`         | 普通连接线（水平线）长度微调值（可正负），在基础长度上增减此值调整连接线长度。 |
+| `leafLineXDelta` | `number`              | `4`          | 叶子节点连接线（水平线）长度微调值（可正负），单独调整末尾节点的连接线长度。 |
+| `lineConfig`     | `IBorderConfig`       | 见下方默认值 | 连接线样式配置对象，包含颜色、线条样式、宽度等属性。         |
 
+## 接口类型详情：`IBorderConfig`（连接线样式配置）
+
+| 属性名  | 类型          | 默认值    | 说明                                                         |
+| ------- | ------------- | --------- | ------------------------------------------------------------ |
+| `color` | `string`      | `"#f00"`  | 连接线颜色，支持 CSS 颜色格式（如 `#fff`、`rgb(255,0,0)`、`blue`）。 |
+| `style` | `borderStyle` | `"solid"` | 连接线样式，可选值：`"solid"`（实线）、`"dashed"`（虚线）、`"double"`（双线）、`"dotted"`（点线）。 |
+| `width` | `string`      | `"1px"`   | 连接线宽度，需带单位（如 `2px`、`1rem`）。                   |

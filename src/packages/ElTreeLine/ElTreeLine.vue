@@ -5,14 +5,14 @@
       v-for="item in lineVerticalList"
       class="verticle-line"
       :class="{ 'is-leaf': item.isHalf }"
-      :style="{ left: indent * (item.level - 1) - 6 + 'px' }"
+      :style="{ left: indent * (item.level - 2) + offsetX + 'px' }"
     >
     </span>
     <span
       class="horizontal-line"
       :style="{
-        width: (node.isLeaf ? 24 : 8) + 'px',
-        left: (node.level - 1) * indent - 6 + 'px',
+        width: (node.isLeaf ? indent + leafLineXDelta : indent + lineXDelta) + 'px',
+        left: (node.level - 2) * indent + offsetX + 'px',
       }"
     ></span>
   </div>
@@ -21,13 +21,35 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+type borderStyle = "solid" | "dashed" | "double" | "dotted";
+
+interface IBorderConfig {
+  color?: string;
+  style?: borderStyle;
+  width?: string;
+}
+
 interface IProps {
   node: Record<string, any>;
   indent?: number;
+  offsetX?: number;
+  lineXDelta?: number;
+  leafLineXDelta?: number;
+  lineConfig?: IBorderConfig;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   indent: 18,
+  offsetX: 12,
+  lineXDelta: -8,
+  leafLineXDelta: 4,
+  lineConfig() {
+    return {
+      color: "#f00",
+      style: "solid",
+      width: "1px",
+    };
+  },
 });
 
 const lineVerticalList = computed(() => {
@@ -59,13 +81,6 @@ const lineVerticalList = computed(() => {
 </script>
 
 <style scoped lang="scss">
-$--element-tree-line-color: #dcdfe6;
-$--element-tree-line-style: dashed;
-$--element-tree-line-width: 1px;
-
-$--element-tree-line-color: #ff0000;
-$--element-tree-line-style: solid;
-$--element-tree-line-width: 1px;
 .el-tree-line {
   .verticle-line {
     display: block;
@@ -73,7 +88,7 @@ $--element-tree-line-width: 1px;
     top: 0;
     left: 0;
     height: 100%;
-    border-left: $--element-tree-line-width $--element-tree-line-style $--element-tree-line-color;
+    border-left: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
 
     &.is-leaf {
       height: 50%;
@@ -86,7 +101,7 @@ $--element-tree-line-width: 1px;
     top: 50%;
     left: 0;
     height: 0;
-    border-bottom: $--element-tree-line-width $--element-tree-line-style $--element-tree-line-color;
+    border-bottom: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
   }
 }
 

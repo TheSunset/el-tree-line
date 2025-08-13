@@ -8,7 +8,10 @@
       :expand-on-click-node="false"
     >
       <template #default="{ node, data }">
-        <ElTreeLine :node="node">
+        <ElTreeLine
+          :node="node"
+          :lineConfig="{ color: 'blue', style: 'solid', width: '1px' }"
+        >
           <template #node-label>
             <div class="custom-tree-node">
               {{ data.label }}
@@ -21,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { ElTree } from "element-plus";
 import ElTreeLine from "./packages/ElTreeLine/ElTreeLine.vue";
 
@@ -115,11 +117,9 @@ const data = [
     ],
   },
 ];
-
 </script>
 
 <style scoped lang="scss">
 .app-container {
-  
 }
 </style>
