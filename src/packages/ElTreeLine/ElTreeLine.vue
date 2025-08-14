@@ -101,4 +101,5 @@ const lineVerticalList = computed(() => {
 :global(.el-tree.el-tree-line-root .el-tree-node > .el-tree-node__children) {
   overflow: visible;
 }
+
 </style>
