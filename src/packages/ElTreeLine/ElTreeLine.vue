@@ -76,7 +76,6 @@ const lineVerticalList = computed(() => {
 <style scoped lang="scss">
 .el-tree-line {
   .verticle-line {
-    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -85,7 +84,6 @@ const lineVerticalList = computed(() => {
   }
 
   .horizontal-line {
-    display: block;
     position: absolute;
     bottom: calc(50% - 1px);
     left: 0;
