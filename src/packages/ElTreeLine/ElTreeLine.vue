@@ -89,7 +89,7 @@ const lineVerticalList = computed(() => {
     position: absolute;
     bottom: calc(50% - 1px);
     left: 0;
-    height: 50%;
+    height: calc(50% + 2px);
     border-bottom: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
     border-left: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
     border-bottom-left-radius: calc(v-bind("radius") * 1px);
