@@ -4,7 +4,6 @@
     <span
       v-for="item in lineVerticalList"
       class="verticle-line"
-      :class="{ 'is-leaf': item.isHalf }"
       :style="{ left: indent * (item.level - 2) + offsetX + 'px' }"
     >
     </span>
@@ -21,11 +20,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-type borderStyle = "solid" | "dashed" | "double" | "dotted";
+type BorderStyle = "solid" | "dashed" | "double" | "dotted";
 
 interface IBorderConfig {
   color?: string;
-  style?: borderStyle;
+  style?: BorderStyle;
   width?: string;
 }
 
@@ -36,6 +35,7 @@ interface IProps {
   lineXDelta?: number;
   leafLineXDelta?: number;
   lineConfig?: IBorderConfig;
+  radius?: number;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
@@ -43,9 +43,10 @@ const props = withDefaults(defineProps<IProps>(), {
   offsetX: 12,
   lineXDelta: -8,
   leafLineXDelta: 4,
+  radius: 4,
   lineConfig() {
     return {
-      color: "#f00",
+      color: "#a9abb2",
       style: "solid",
       width: "1px",
     };
@@ -63,15 +64,7 @@ const lineVerticalList = computed(() => {
       if (index !== parentNode.childNodes.length - 1) {
         lineList.unshift({
           level: currentNode.level,
-          isHalf: false,
         });
-      } else {
-        if (currentNode.id === node.id) {
-          lineList.unshift({
-            level: currentNode.level,
-            isHalf: true,
-          });
-        }
       }
     }
     currentNode = parentNode;
@@ -89,19 +82,17 @@ const lineVerticalList = computed(() => {
     left: 0;
     height: 100%;
     border-left: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
-
-    &.is-leaf {
-      height: 50%;
-    }
   }
 
   .horizontal-line {
     display: block;
     position: absolute;
-    top: 50%;
+    bottom: calc(50% - 1px);
     left: 0;
-    height: 0;
+    height: 50%;
     border-bottom: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
+    border-left: v-bind("lineConfig.width") v-bind("lineConfig.style") v-bind("lineConfig.color");
+    border-bottom-left-radius: calc(v-bind("radius") * 1px);
   }
 }
 

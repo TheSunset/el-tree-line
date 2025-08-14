@@ -10,7 +10,7 @@
       <template #default="{ node, data }">
         <ElTreeLine
           :node="node"
-          :lineConfig="{ color: 'blue', style: 'solid', width: '1px' }"
+          :lineConfig="{ color: 'orange', style: 'solid', width: '1px' }"
         >
           <template #node-label>
             <div class="custom-tree-node">
