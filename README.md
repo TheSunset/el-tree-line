@@ -27,7 +27,7 @@ yarn add el-tree-line
 ## 使用
 1. 给`el-tree`组件添加`class="el-tree-line-root"`，避免污染其他组件。
 2. 使用`ElTreeLine`组件包裹`el-tree`的每个节点。
-3. 引入样式 `import "/lib/index.css";`
+3. 引入样式 `import "el-tree-line/lib/index.css";`
 ```vue
 <template>
   <div class="app-container">
@@ -55,7 +55,7 @@ yarn add el-tree-line
 import { ElTree } from "element-plus";
 import ElTreeLine from "el-tree-line";
 
-import "/lib/index.css";
+import "el-tree-line/lib/index.css";
 
 const data = [
   {
